@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary - 1 Năm Yêu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef, #ffc3a0);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .frame {
+            width: 90%;
+            max-width: 800px;
+            background: #fdf2f8;
+            border: 15px solid #ec4899;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: #2d3436;
+            font-weight: bold;
+            margin-bottom: 10px;
+            animation: bounceIn 2s ease-out 0.5s both;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .heart {
+            color: #e17055;
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            20%,
+            40%,
+            60%,
+            80%,
+            100% {
+                transform: scale(1);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: scale(1.2);
+            }
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        @supports (display: grid) {
+            .content {
+                grid-template-columns: minmax(250px, 1fr) minmax(250px, 1fr);
+            }
+        }
+
+        .photos-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            position: relative;
+        }
+
+        .photo {
+            width: 100%;
+            height: 150px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: slideIn 1s ease-out;
+        }
+
+        .photo:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .photo:nth-child(2) {
+            animation-delay: 0.7s;
+        }
+
+        .photo:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .photo:nth-child(4) {
+            animation-delay: 1.1s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffc0cb, #ffb6c1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3436;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 192, 203, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 15px solid #e17055;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-left: 3px;
+        }
+
+        .calendar-section {
+            text-align: right;
+        }
+
+        .calendar-title {
+            font-size: 1.8rem;
+            color: #2d3436;
+            margin-bottom: 20px;
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .calendar {
+            background: #fef7ff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: slideInRight 1s ease-out 0.6s both;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .month-year {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d3436;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .weekday {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #636e72;
+            padding: 5px;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .day:hover {
+            background: #ffc0cb;
+        }
+
+        .day.special {
+            background: #e17055;
+            color: white;
+            animation: specialDay 2s ease-in-out infinite;
+        }
+
+        @keyframes specialDay {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .couple-names {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 182, 193, 0.3);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-out 1.5s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .names {
+            font-size: 1.3rem;
+            color: #2d3436;
+            font-weight: bold;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 182, 193, 0.4);
+            border-radius: 10px;
+            font-style: italic;
+            color: #636e72;
+            line-height: 1.6;
+            animation: fadeIn 1.5s ease-out 2s both;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #e17055;
+            font-size: 20px;
+            animation: floatUp 4s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 0.7;
+                transform: translateY(100vh) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        /* Tablet breakpoint */
+        @media (max-width: 1024px) {
+            .frame {
+                width: 95%;
+                padding: 25px;
+                border-width: 12px;
+            }
+
+            .title {
+                font-size: 2.2rem;
+            }
+
+            .photo {
+                height: 130px;
+            }
+        }
+
+        /* Mobile landscape breakpoint */
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .calendar-section {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .frame {
+                width: 98%;
+                padding: 20px;
+                border-width: 10px;
+                margin: 10px;
+            }
+
+            .photos-section {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .photo {
+                height: 120px;
+            }
+
+            .calendar {
+                padding: 15px;
+            }
+
+            .couple-names,
+            .message {
+                padding: 12px;
+                margin-top: 15px;
+            }
+        }
+
+        /* Mobile portrait breakpoint */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+
+            .frame {
+                width: 100%;
+                padding: 15px;
+                border-width: 8px;
+                margin: 5px;
+                border-radius: 15px;
+            }
+
+            .title {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+
+            .heart {
+                font-size: 1.5rem;
+                margin: 0 5px;
+            }
+
+            .content {
+                gap: 15px;
+            }
+
+            .photos-section {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .photo {
+                height: 150px;
+            }
+
+            .calendar-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .calendar {
+                padding: 12px;
+            }
+
+            .month-year {
+                font-size: 1rem;
+            }
+
+            .weekday {
+                font-size: 0.7rem;
+                padding: 3px;
+            }
+
+            .day {
+                font-size: 0.8rem;
+            }
+
+            .names {
+                font-size: 1.1rem;
+            }
+
+            .message {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                padding: 10px;
+            }
+
+            .play-button {
+                width: 40px;
+                height: 40px;
+            }
+
+            .play-icon {
+                border-left-width: 12px;
+                border-top-width: 8px;
+                border-bottom-width: 8px;
+            }
+        }
+
+        /* Very small mobile breakpoint */
+        @media (max-width: 320px) {
+            .frame {
+                padding: 10px;
+                border-width: 5px;
+            }
+
+            .title {
+                font-size: 1.4rem;
+            }
+
+            .photo {
+                height: 120px;
+            }
+
+            .calendar {
+                padding: 8px;
+            }
+
+            .weekday,
+            .day {
+                font-size: 0.7rem;
+            }
+
+            .names {
+                font-size: 1rem;
+            }
+
+            .message {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Modal Gallery Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            background: #fdf2f8;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ec4899;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: #2d3436;
+            font-weight: bold;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #ec4899;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .close:hover {
+            background: rgba(236, 72, 153, 0.1);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: linear-gradient(45deg, #ffc0cb, #ffb6c1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2d3436;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery-placeholder .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .photo-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+
+        .photo-viewer.show {
+            display: flex;
+        }
+
+        .photo-viewer img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .photo-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .photo-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .photo-nav.prev {
+            left: 20px;
+        }
+
+        .photo-nav.next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 15px;
+                max-width: 95%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+
+            .gallery-item {
+                height: 150px;
+            }
+
+            .modal-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Modal Gallery -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Kỷ niệm đầu tiên</h3>
+                <button class="close" id="closeModal">&times;</button>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Photos will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Viewer -->
+    <div class="photo-viewer" id="photoViewer">
+        <button class="photo-nav prev" id="prevPhoto">&#8249;</button>
+        <img id="viewerImage" src="" alt="">
+        <button class="photo-nav next" id="nextPhoto">&#8250;</button>
+        <button class="close" id="closeViewer" style="position: absolute; top: 20px; right: 20px;">&times;</button>
+    </div>
+
+    <div class="frame">
+        <div class="header">
+            <h1 class="title">Happy Anniversary</h1>
+            <div class="heart">💖</div>
+        </div>
+
+        <div class="content">
+            <div class="photos-section">
+                <div class="photo">
+                    <div class="photo-placeholder">Kỷ niệm đầu tiên 📸</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-placeholder">Chuyến đi đáng nhớ 🌄</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-placeholder">Món quà đặc biệt 🎁</div>
+                </div>
+                <div class="photo">
+                    <div class="photo-placeholder">Khoảnh khắc hạnh phúc 😊</div>
+                    <div class="play-button">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-section">
+                <h2 class="calendar-title">December</h2>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <div class="month-year">December 2025</div>
+                    </div>
+                    <div class="weekdays">
+                        <div class="weekday">SUN</div>
+                        <div class="weekday">MON</div>
+                        <div class="weekday">TUE</div>
+                        <div class="weekday">WED</div>
+                        <div class="weekday">THU</div>
+                        <div class="weekday">FRI</div>
+                        <div class="weekday">SAT</div>
+                    </div>
+                    <div class="days" id="calendar-days">
+                        <!-- Days will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="couple-names">
+                    <div class="names">
+                        <span class="heart">❤️</span>Hưng & Duyên
+                        <span class="heart">❤️</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message">
+            "Một năm trôi qua, chúng ta đã cùng đi qua đủ nắng mưa để hiểu rằng yêu đúng người là bình yên nhất. Cảm ơn
+            em vì đã ở lại, vì đã cùng anh viết nên hành trình đẹp này. Chúc mừng kỷ niệm 1 năm yêu nhau. 💕"
+        </div>
+    </div>
+
+    <script>
+        // Generate calendar
+        function generateCalendar() {
+            const daysContainer = document.getElementById('calendar-days');
+            const today = new Date();
+            const currentMonth = 11; // December
+            const currentYear = 2025;
+
+            // Get first day of month and number of days
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+            // Add empty cells for days before month starts
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'day';
+                daysContainer.appendChild(emptyDay);
+            }
+
+            // Add days of month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'day';
+                dayElement.textContent = day;
+
+                // Mark special day (anniversary)
+                if (day === 8) {
+                    dayElement.classList.add('special');
+                    dayElement.title = 'Ngày kỷ niệm 1 năm! 💕';
+                }
+
+                daysContainer.appendChild(dayElement);
+            }
+        }
+
+        // Create floating hearts
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('floatingHearts');
+
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+
+                heartsContainer.appendChild(heart);
+
+                // Remove heart after animation
+                setTimeout(() => {
+                    if (heartsContainer.contains(heart)) {
+                        heartsContainer.removeChild(heart);
+                    }
+                }, 4000);
+            }, 2000);
+        }
+
+        // Photo galleries data
+        const photoGalleries = {
+            0: {
+                title: "Kỷ niệm đầu tiên 📸",
+                photos: [
+                    { src: "https://i.postimg.cc/C5Q03x4Q/images.png", caption: "Lần đầu gặp nhau" },
+                    { src: "https://picsum.photos/400/300?random=2", caption: "Buổi hẹn đầu tiên" },
+                    { src: "https://picsum.photos/400/300?random=3", caption: "Nụ cười ngọt ngào" },
+                    { src: "https://picsum.photos/400/300?random=4", caption: "Khoảnh khắc đặc biệt" }
+                ]
+            },
+            1: {
+                title: "Chuyến đi đáng nhớ 🌄",
+                photos: [
+                    { src: "https://picsum.photos/400/300?random=5", caption: "Cùng nhau khám phá" },
+                    { src: "https://picsum.photos/400/300?random=6", caption: "Thiên nhiên tươi đẹp" },
+                    { src: "https://picsum.photos/400/300?random=7", caption: "Hoàng hôn lãng mạn" },
+                    { src: "https://picsum.photos/400/300?random=8", caption: "Kỷ niệm không quên" }
+                ]
+            },
+            2: {
+                title: "Món quà đặc biệt 🎁",
+                photos: [
+                    { src: "https://picsum.photos/400/300?random=9", caption: "Món quà bất ngờ" },
+                    { src: "https://picsum.photos/400/300?random=10", caption: "Niềm vui hạnh phúc" },
+                    { src: "https://picsum.photos/400/300?random=11", caption: "Tình yêu chân thành" },
+                    { src: "https://picsum.photos/400/300?random=12", caption: "Ý nghĩa sâu sắc" }
+                ]
+            },
+            3: {
+                title: "Khoảnh khắc hạnh phúc 😊",
+                photos: [
+                    { src: "https://picsum.photos/400/300?random=13", caption: "Nụ cười rạng rỡ" },
+                    { src: "https://picsum.photos/400/300?random=14", caption: "Hạnh phúc bên nhau" },
+                    { src: "https://picsum.photos/400/300?random=15", caption: "Những giây phút đẹp" },
+                    { src: "https://picsum.photos/400/300?random=16", caption: "Yêu thương vô tận" }
+                ]
+            }
+        };
+
+        let currentGallery = [];
+        let currentPhotoIndex = 0;
+
+        // Add click effects to photos
+        function addPhotoEffects() {
+            const photos = document.querySelectorAll('.photo');
+            photos.forEach((photo, index) => {
+                photo.addEventListener('click', function () {
+                    // Show modal with gallery
+                    showPhotoGallery(index);
+                });
+            });
+        }
+
+        // Show photo gallery modal
+        function showPhotoGallery(galleryIndex) {
+            const gallery = photoGalleries[galleryIndex];
+            if (!gallery) return;
+
+            const modal = document.getElementById('photoModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const galleryGrid = document.getElementById('galleryGrid');
+
+            modalTitle.textContent = gallery.title;
+            galleryGrid.innerHTML = '';
+
+            gallery.photos.forEach((photo, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `
+                    <img src="${photo.src}" alt="${photo.caption}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="gallery-placeholder" style="display:none;">
+                        <div class="emoji">📷</div>
+                        <div>${photo.caption}</div>
+                    </div>
+                `;
+
+                galleryItem.addEventListener('click', () => {
+                    showPhotoViewer(gallery.photos, index);
+                });
+
+                galleryGrid.appendChild(galleryItem);
+            });
+
+            modal.classList.add('show');
+        }
+
+        // Show individual photo viewer
+        function showPhotoViewer(photos, startIndex) {
+            currentGallery = photos;
+            currentPhotoIndex = startIndex;
+            const viewer = document.getElementById('photoViewer');
+            const viewerImage = document.getElementById('viewerImage');
+
+            updateViewerImage();
+            viewer.classList.add('show');
+        }
+
+        // Update viewer image
+        function updateViewerImage() {
+            const viewerImage = document.getElementById('viewerImage');
+            const currentPhoto = currentGallery[currentPhotoIndex];
+            viewerImage.src = currentPhoto.src;
+            viewerImage.alt = currentPhoto.caption;
+        }
+
+        // Navigate photos
+        function navigatePhoto(direction) {
+            if (direction === 'next') {
+                currentPhotoIndex = (currentPhotoIndex + 1) % currentGallery.length;
+            } else {
+                currentPhotoIndex = (currentPhotoIndex - 1 + currentGallery.length) % currentGallery.length;
+            }
+            updateViewerImage();
+        }
+
+        // Setup modal event listeners
+        function setupModalEvents() {
+            const modal = document.getElementById('photoModal');
+            const photoViewer = document.getElementById('photoViewer');
+            const closeModal = document.getElementById('closeModal');
+            const closeViewer = document.getElementById('closeViewer');
+            const prevPhoto = document.getElementById('prevPhoto');
+            const nextPhoto = document.getElementById('nextPhoto');
+
+            // Close modal events
+            closeModal.addEventListener('click', () => {
+                modal.classList.remove('show');
+            });
+
+            closeViewer.addEventListener('click', () => {
+                photoViewer.classList.remove('show');
+            });
+
+            // Click outside to close
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                }
+            });
+
+            photoViewer.addEventListener('click', (e) => {
+                if (e.target === photoViewer) {
+                    photoViewer.classList.remove('show');
+                }
+            });
+
+            // Photo navigation
+            prevPhoto.addEventListener('click', () => navigatePhoto('prev'));
+            nextPhoto.addEventListener('click', () => navigatePhoto('next'));
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (photoViewer.classList.contains('show')) {
+                    switch (e.key) {
+                        case 'ArrowLeft':
+                            navigatePhoto('prev');
+                            break;
+                        case 'ArrowRight':
+                            navigatePhoto('next');
+                            break;
+                        case 'Escape':
+                            photoViewer.classList.remove('show');
+                            break;
+                    }
+                } else if (modal.classList.contains('show') && e.key === 'Escape') {
+                    modal.classList.remove('show');
+                }
+            });
+        }
+
+        // Play button effect
+        function addPlayButtonEffect() {
+            const playButton = document.querySelector('.play-button');
+            if (playButton) {
+                playButton.addEventListener('click', function () {
+                    // Create hearts explosion effect
+                    for (let i = 0; i < 10; i++) {
+                        setTimeout(() => {
+                            const heart = document.createElement('div');
+                            heart.innerHTML = '💕';
+                            heart.style.position = 'absolute';
+                            heart.style.left = '50%';
+                            heart.style.top = '50%';
+                            heart.style.fontSize = '20px';
+                            heart.style.pointerEvents = 'none';
+                            heart.style.animation = `explodeHeart 1s ease-out forwards`;
+                            heart.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+
+                            this.parentElement.appendChild(heart);
+
+                            setTimeout(() => {
+                                if (heart.parentElement) {
+                                    heart.parentElement.removeChild(heart);
+                                }
+                            }, 1000);
+                        }, i * 100);
+                    }
+                });
+            }
+        }
+
+        // Add explode heart animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes explodeHeart {
+                0% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(2) translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function () {
+            generateCalendar();
+            createFloatingHearts();
+            addPhotoEffects();
+            addPlayButtonEffect();
+            setupModalEvents();
+        });
+
+        // Add sparkle effect on mouse move
+        document.addEventListener('mousemove', function (e) {
+            if (Math.random() > 0.9) {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.fontSize = '12px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.animation = 'fadeOut 1s ease-out forwards';
+                sparkle.style.zIndex = '1000';
+
+                document.body.appendChild(sparkle);
+
+                setTimeout(() => {
+                    if (sparkle.parentElement) {
+                        sparkle.parentElement.removeChild(sparkle);
+                    }
+                }, 1000);
+            }
+        });
+
+        // Add fadeOut animation
+        const fadeOutStyle = document.createElement('style');
+        fadeOutStyle.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(1.5); }
+            }
+        `;
+        document.head.appendChild(fadeOutStyle);
+    </script>
+</body>
+
+</html>
