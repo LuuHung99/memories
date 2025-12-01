@@ -23,15 +23,31 @@
         }
 
         .frame {
-            width: 90%;
-            max-width: 800px;
+            width: 95%;
+            max-width: 1200px;
             background: #fdf2f8;
             border: 15px solid #ec4899;
             border-radius: 20px;
-            padding: 30px;
+            padding: 40px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1400px) {
+            .frame {
+                max-width: 1400px;
+                padding: 50px;
+            }
+
+            .content {
+                gap: 50px;
+            }
+
+            .title {
+                font-size: 3rem;
+            }
         }
 
         @keyframes fadeInUp {
@@ -117,7 +133,15 @@
 
         @supports (display: grid) {
             .content {
-                grid-template-columns: minmax(250px, 1fr) minmax(250px, 1fr);
+                grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);
+            }
+        }
+
+        /* Desktop content layout - 3 columns */
+        @media (min-width: 1025px) {
+            .content {
+                grid-template-columns: minmax(280px, 0.8fr) minmax(400px, 1.2fr) minmax(320px, 0.9fr);
+                gap: 25px;
             }
         }
 
@@ -366,6 +390,167 @@
             animation: fadeIn 1.5s ease-out 2s both;
         }
 
+        .sidebar {
+            display: none;
+        }
+
+        @media (min-width: 1025px) {
+            .sidebar {
+                display: block;
+                animation: slideInLeft 1s ease-out 0.8s both;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline {
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-title {
+            font-size: 1.4rem;
+            color: #2d3436;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-date {
+            background: #ec4899;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            min-width: 60px;
+            text-align: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-event {
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 3px;
+            font-size: 0.9rem;
+        }
+
+        .timeline-description {
+            color: #636e72;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .stats-card {
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stats-title {
+            font-size: 1.4rem;
+            color: #2d3436;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.2);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            color: #636e72;
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            color: #ec4899;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .memories-card {
+            background: rgba(255, 182, 193, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .memories-title {
+            font-size: 1.4rem;
+            color: #2d3436;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .memory-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .memory-item:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(1.02);
+        }
+
+        .memory-icon {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            width: 25px;
+            text-align: center;
+        }
+
+        .memory-text {
+            color: #2d3436;
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+
         .floating-hearts {
             position: absolute;
             width: 100%;
@@ -394,10 +579,27 @@
             }
         }
 
+        /* Desktop breakpoint */
+        @media (min-width: 1025px) and (max-width: 1399px) {
+            .frame {
+                max-width: 1000px;
+                padding: 35px;
+            }
+
+            .photo {
+                height: 160px;
+            }
+
+            .content {
+                gap: 40px;
+            }
+        }
+
         /* Tablet breakpoint */
         @media (max-width: 1024px) {
             .frame {
-                width: 95%;
+                width: 92%;
+                max-width: 800px;
                 padding: 25px;
                 border-width: 12px;
             }
@@ -409,13 +611,21 @@
             .photo {
                 height: 130px;
             }
+
+            .content {
+                gap: 25px;
+            }
         }
 
         /* Mobile landscape breakpoint */
         @media (max-width: 768px) {
             .content {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
+            }
+
+            .sidebar {
+                display: none !important;
             }
 
             .calendar-section {
@@ -423,137 +633,94 @@
             }
 
             .title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .frame {
-                width: 98%;
-                padding: 20px;
-                border-width: 10px;
-                margin: 10px;
+                width: 96%;
+                max-width: 600px;
+                padding: 18px;
+                border-width: 8px;
+                margin: 8px;
             }
 
             .photos-section {
                 grid-template-columns: 1fr 1fr;
-                gap: 12px;
+                gap: 10px;
             }
 
             .photo {
-                height: 120px;
+                height: 110px;
             }
 
             .calendar {
-                padding: 15px;
+                padding: 12px;
             }
 
             .couple-names,
             .message {
-                padding: 12px;
-                margin-top: 15px;
+                padding: 10px;
+                margin-top: 12px;
+                font-size: 0.9rem;
             }
         }
 
         /* Mobile portrait breakpoint */
         @media (max-width: 480px) {
             body {
-                padding: 5px;
-            }
-
-            .frame {
-                width: 100%;
-                padding: 15px;
-                border-width: 8px;
-                margin: 5px;
-                border-radius: 15px;
-            }
-
-            .title {
-                font-size: 1.6rem;
-                margin-bottom: 15px;
-            }
-
-            .heart {
-                font-size: 1.5rem;
-                margin: 0 5px;
-            }
-
-            .content {
-                gap: 15px;
-            }
-
-            .photos-section {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .photo {
-                height: 150px;
-            }
-
-            .calendar-title {
-                font-size: 1.5rem;
-                margin-bottom: 15px;
-            }
-
-            .calendar {
-                padding: 12px;
-            }
-
-            .month-year {
-                font-size: 1rem;
-            }
-
-            .weekday {
-                font-size: 0.7rem;
                 padding: 3px;
             }
 
-            .day {
-                font-size: 0.8rem;
-            }
-
-            .names {
-                font-size: 1.1rem;
-            }
-
-            .message {
-                font-size: 0.9rem;
-                line-height: 1.5;
-                padding: 10px;
-            }
-
-            .play-button {
-                width: 40px;
-                height: 40px;
-            }
-
-            .play-icon {
-                border-left-width: 12px;
-                border-top-width: 8px;
-                border-bottom-width: 8px;
-            }
-        }
-
-        /* Very small mobile breakpoint */
-        @media (max-width: 320px) {
             .frame {
-                padding: 10px;
-                border-width: 5px;
+                width: 98%;
+                max-width: 400px;
+                padding: 12px;
+                border-width: 6px;
+                margin: 3px;
+                border-radius: 12px;
             }
 
             .title {
                 font-size: 1.4rem;
+                margin-bottom: 12px;
+            }
+
+            .heart {
+                font-size: 1.2rem;
+                margin: 0 3px;
+            }
+
+            .content {
+                gap: 12px;
+            }
+
+            .photos-section {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
 
             .photo {
                 height: 120px;
             }
 
+            .calendar-title {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+
             .calendar {
                 padding: 8px;
             }
 
-            .weekday,
+            .month-year {
+                font-size: 0.9rem;
+            }
+
+            .weekday {
+                font-size: 0.6rem;
+                padding: 2px;
+            }
+
             .day {
                 font-size: 0.7rem;
             }
@@ -564,6 +731,64 @@
 
             .message {
                 font-size: 0.8rem;
+                line-height: 1.4;
+                padding: 8px;
+            }
+
+            .play-button {
+                width: 35px;
+                height: 35px;
+            }
+
+            .play-icon {
+                border-left-width: 10px;
+                border-top-width: 7px;
+                border-bottom-width: 7px;
+            }
+        }
+
+        /* Very small mobile breakpoint */
+        @media (max-width: 320px) {
+            .frame {
+                width: 99%;
+                max-width: 300px;
+                padding: 8px;
+                border-width: 4px;
+                margin: 2px;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .photo {
+                height: 100px;
+            }
+
+            .calendar {
+                padding: 6px;
+            }
+
+            .weekday,
+            .day {
+                font-size: 0.6rem;
+            }
+
+            .names {
+                font-size: 0.9rem;
+            }
+
+            .message {
+                font-size: 0.7rem;
+                padding: 6px;
+            }
+
+            .content {
+                gap: 8px;
+            }
+
+            .photos-section {
+                gap: 6px;
             }
         }
 
@@ -739,23 +964,76 @@
             right: 20px;
         }
 
-        @media (max-width: 768px) {
+        /* Desktop modal */
+        @media (min-width: 1025px) {
             .modal-content {
-                padding: 15px;
-                max-width: 95%;
+                max-width: 80%;
+                padding: 30px;
             }
 
             .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 10px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
             }
 
             .gallery-item {
-                height: 150px;
+                height: 250px;
+            }
+        }
+
+        /* Tablet modal */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .modal-content {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+        }
+
+        /* Mobile modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 12px;
+                max-width: 96%;
+                max-height: 85%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 8px;
+            }
+
+            .gallery-item {
+                height: 120px;
             }
 
             .modal-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Very small mobile modal */
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 8px;
+                max-width: 98%;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 6px;
+            }
+
+            .gallery-item {
+                height: 100px;
             }
         }
     </style>
@@ -792,6 +1070,96 @@
         </div>
 
         <div class="content">
+            <!-- Sidebar - only show on desktop -->
+            <div class="sidebar">
+                <!-- Timeline -->
+                <div class="timeline">
+                    <h3 class="timeline-title">🕰️ Timeline Yêu</h3>
+                    <div class="timeline-item">
+                        <div class="timeline-date">T1/24</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Lần đầu gặp</div>
+                            <div class="timeline-description">Khoảnh khắc đặc biệt bắt đầu</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">T3/24</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Buổi hẹn đầu</div>
+                            <div class="timeline-description">Cafe nhỏ và nước cam tươi</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">T6/24</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Lời tỏ tình</div>
+                            <div class="timeline-description">"Anh muốn em là người cuối cùng"</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">8/12</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">🎉 Kỷ niệm 1 năm</div>
+                            <div class="timeline-description">365 ngày hạnh phúc bên nhau</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-card">
+                    <h3 class="stats-title">📊 Thống kê Yêu</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Ngày yêu nhau</span>
+                        <span class="stat-value">365+</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Buổi hẹn hò</span>
+                        <span class="stat-value">47</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Chuyến đi xa</span>
+                        <span class="stat-value">8</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Bữa ăn ngon</span>
+                        <span class="stat-value">156</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Đêm xem phim</span>
+                        <span class="stat-value">23</span>
+                    </div>
+                </div>
+
+                <!-- Sweet Memories -->
+                <div class="memories-card">
+                    <h3 class="memories-title">💕 Ký ức ngọt</h3>
+                    <div class="memory-item">
+                        <span class="memory-icon">☕</span>
+                        <span class="memory-text">Coffee buổi sáng cùng nhau mỗi ngày</span>
+                    </div>
+                    <div class="memory-item">
+                        <span class="memory-icon">🌙</span>
+                        <span class="memory-text">Những cuộc gọi kề chuyện đêm muộn</span>
+                    </div>
+                    <div class="memory-item">
+                        <span class="memory-icon">🌸</span>
+                        <span class="memory-text">Hái hoa dại tặng nhau</span>
+                    </div>
+                    <div class="memory-item">
+                        <span class="memory-icon">🎂</span>
+                        <span class="memory-text">Làm bánh cùng nhau tại nhà</span>
+                    </div>
+                    <div class="memory-item">
+                        <span class="memory-icon">🎅</span>
+                        <span class="memory-text">Trao quà Giáng sinh bất ngờ</span>
+                    </div>
+                    <div class="memory-item">
+                        <span class="memory-icon">🌊</span>
+                        <span class="memory-text">Ngắm hoàng hôn bên bờ biển</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="photos-section">
                 <div class="photo">
                     <div class="photo-placeholder">Kỷ niệm đầu tiên 📸</div>
